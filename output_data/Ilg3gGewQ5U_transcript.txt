@@ -1,0 +1,192 @@
+4.06s: Here, we tackle backpropagation, the core algorithm behind how neural networks learn.
+9.40s: After a quick recap for where we are, the first thing I'll do is an intuitive walkthrough 
+13.42s: for what the algorithm is actually doing, without any reference to the formulas.
+17.66s: Then, for those of you who do want to dive into the math, 
+20.34s: the next video goes into the calculus underlying all this.
+23.82s: If you watched the last two videos, or if you're just jumping in with the appropriate 
+27.45s: background, you know what a neural network is, and how it feeds forward information.
+31.68s: Here, we're doing the classic example of recognizing handwritten digits whose pixel 
+36.06s: values get fed into the first layer of the network with 784 neurons, 
+39.66s: and I've been showing a network with two hidden layers having just 16 neurons each, 
+44.03s: and an output layer of 10 neurons, indicating which digit the network is choosing 
+48.31s: as its answer.
+50.04s: I'm also expecting you to understand gradient descent, 
+53.09s: as described in the last video, and how what we mean by learning is 
+56.87s: that we want to find which weights and biases minimize a certain cost function.
+62.04s: As a quick reminder, for the cost of a single training example, 
+65.81s: you take the output the network gives, along with the output you wanted it to give, 
+70.77s: and add up the squares of the differences between each component.
+75.38s: Doing this for all of your tens of thousands of training examples and 
+78.84s: averaging the results, this gives you the total cost of the network.
+82.20s: And as if that's not enough to think about, as described in the last video, 
+86.32s: the thing that we're looking for is the negative gradient of this cost function, 
+90.72s: which tells you how you need to change all of the weights and biases, 
+94.52s: all of these connections, so as to most efficiently decrease the cost.
+103.26s: Backpropagation, the topic of this video, is an 
+105.72s: algorithm for computing that crazy complicated gradient.
+109.14s: And the one idea from the last video that I really want you to hold 
+112.57s: firmly in your mind right now is that because thinking of the gradient 
+116.16s: vector as a direction in 13,000 dimensions is, to put it lightly, 
+119.49s: beyond the scope of our imaginations, there's another way you can think about it.
+124.60s: The magnitude of each component here is telling you how 
+127.80s: sensitive the cost function is to each weight and bias.
+131.80s: For example, let's say you go through the process I'm about to describe, 
+135.80s: and you compute the negative gradient, and the component associated with the weight on 
+140.56s: this edge here comes out to be 3.2, while the component associated with this edge here 
+145.33s: comes out as 0.1.
+146.82s: The way you would interpret that is that the cost of the function is 32 times 
+150.77s: more sensitive to changes in that first weight, 
+153.19s: so if you were to wiggle that value just a little bit, 
+155.98s: it's going to cause some change to the cost, and that change is 32 times greater 
+160.07s: than what the same wiggle to that second weight would give.
+168.42s: Personally, when I was first learning about backpropagation, 
+171.42s: I think the most confusing aspect was just the notation and the index chasing of it all.
+176.22s: But once you unwrap what each part of this algorithm is really doing, 
+179.49s: each individual effect it's having is actually pretty intuitive, 
+182.53s: it's just that there's a lot of little adjustments getting layered on top of each other.
+187.74s: So I'm going to start things off here with a complete disregard for the notation, 
+191.83s: and just step through the effects each training example has on the weights and biases.
+197.02s: Because the cost function involves averaging a certain cost per example over 
+201.56s: all the tens of thousands of training examples, 
+204.38s: the way we adjust the weights and biases for a single gradient descent step also 
+209.15s: depends on every single example.
+211.68s: Or rather, in principle it should, but for computational efficiency we'll do a little 
+215.57s: trick later to keep you from needing to hit every single example for every step.
+219.20s: In other cases, right now, all we're going to do is focus 
+222.67s: our attention on one single example, this image of a 2.
+226.72s: What effect should this one training example have 
+229.28s: on how the weights and biases get adjusted?
+232.68s: Let's say we're at a point where the network is not well trained yet, 
+236.26s: so the activations in the output are going to look pretty random, 
+239.64s: maybe something like 0.5, 0.8, 0.2, on and on.
+242.52s: We can't directly change those activations, we 
+244.86s: only have influence on the weights and biases.
+247.16s: But it's helpful to keep track of which adjustments 
+250.01s: we wish should take place to that output layer.
+253.36s: And since we want it to classify the image as a 2, 
+256.46s: we want that third value to get nudged up while all the others get nudged down.
+262.06s: Moreover, the sizes of these nudges should be proportional 
+265.76s: to how far away each current value is from its target value.
+270.22s: For example, the increase to that number 2 neuron's activation 
+273.84s: is in a sense more important than the decrease to the number 8 neuron, 
+277.91s: which is already pretty close to where it should be.
+282.04s: So zooming in further, let's focus just on this one neuron, 
+285.03s: the one whose activation we wish to increase.
+288.18s: Remember, that activation is defined as a certain weighted sum of all 
+292.35s: the activations in the previous layer, plus a bias, 
+295.44s: which is all then plugged into something like the sigmoid squishification function, 
+300.44s: or a ReLU.
+301.64s: So there are three different avenues that can 
+304.22s: team up together to help increase that activation.
+307.44s: You can increase the bias, you can increase the weights, 
+310.68s: and you can change the activations from the previous layer.
+314.94s: Focusing on how the weights should be adjusted, 
+317.41s: notice how the weights actually have differing levels of influence.
+321.44s: The connections with the brightest neurons from the preceding layer have the 
+325.25s: biggest effect since those weights are multiplied by larger activation values.
+331.46s: So if you were to increase one of those weights, 
+333.93s: it actually has a stronger influence on the ultimate cost function than increasing 
+338.13s: the weights of connections with dimmer neurons, 
+340.55s: at least as far as this one training example is concerned.
+344.42s: Remember, when we talk about gradient descent, 
+346.63s: we don't just care about whether each component should get nudged up or down, 
+350.30s: we care about which ones give you the most bang for your buck.
+355.02s: This, by the way, is at least somewhat reminiscent of a theory in 
+358.56s: neuroscience for how biological networks of neurons learn, Hebbian theory, 
+362.59s: often summed up in the phrase, neurons that fire together wire together.
+367.26s: Here, the biggest increases to weights, the biggest strengthening of connections, 
+371.77s: happens between neurons which are the most active, 
+374.58s: and the ones which we wish to become more active.
+377.94s: In a sense, the neurons that are firing while seeing a 2 get more 
+381.14s: strongly linked to those are the ones firing when thinking about a 2.
+385.40s: To be clear, I'm not in a position to make statements one way or another about 
+389.41s: whether artificial networks of neurons behave anything like biological brains, 
+393.41s: and this fires together wire together idea comes with a couple meaningful asterisks, 
+397.72s: but taken as a very loose analogy, I find it interesting to note.
+401.94s: Anyway, the third way we can help increase this neuron's 
+405.18s: activation is by changing all the activations in the previous layer.
+409.04s: Namely, if everything connected to that digit 2 neuron with a positive 
+413.07s: weight got brighter, and if everything connected with a negative weight got dimmer, 
+417.84s: then that digit 2 neuron would become more active.
+422.54s: And similar to the weight changes, you're going to get the most bang for your buck 
+426.43s: by seeking changes that are proportional to the size of the corresponding weights.
+432.14s: Now of course, we cannot directly influence those activations, 
+435.14s: we only have control over the weights and biases.
+437.48s: But just as with the last layer, it's helpful 
+440.69s: to keep a note of what those desired changes are.
+444.58s: But keep in mind, zooming out one step here, this 
+446.99s: is only what that digit 2 output neuron wants.
+449.76s: Remember, we also want all the other neurons in the last layer to become less active, 
+453.99s: and each of those other output neurons has its own thoughts about 
+457.24s: what should happen to that second to last layer.
+462.70s: So, the desire of this digit 2 neuron is added together with the 
+466.94s: desires of all the other output neurons for what should happen to this 
+471.58s: second to last layer, again in proportion to the corresponding weights, 
+476.28s: and in proportion to how much each of those neurons needs to change.
+481.60s: This right here is where the idea of propagating backwards comes in.
+485.82s: By adding together all these desired effects, you basically get a 
+489.53s: list of nudges that you want to happen to this second to last layer.
+494.22s: And once you have those, you can recursively apply the same process to the 
+497.89s: relevant weights and biases that determine those values, 
+500.69s: repeating the same process I just walked through and moving backwards through the network.
+508.96s: And zooming out a bit further, remember that this is all just how a single 
+513.12s: training example wishes to nudge each one of those weights and biases.
+517.48s: If we only listened to what that 2 wanted, the network would 
+520.33s: ultimately be incentivized just to classify all images as a 2.
+524.06s: So what you do is go through this same backprop routine for every other training example, 
+529.30s: recording how each of them would like to change the weights and biases, 
+533.50s: and average together those desired changes.
+541.72s: This collection here of the averaged nudges to each weight and bias is, 
+545.94s: loosely speaking, the negative gradient of the cost function referenced 
+550.16s: in the last video, or at least something proportional to it.
+554.38s: I say loosely speaking only because I have yet to get quantitatively precise 
+558.44s: about those nudges, but if you understood every change I just referenced, 
+562.35s: why some are proportionally bigger than others, 
+564.88s: and how they all need to be added together, you understand the mechanics for 
+568.94s: what backpropagation is actually doing.
+573.96s: By the way, in practice, it takes computers an extremely long time to 
+578.05s: add up the influence of every training example every gradient descent step.
+583.14s: So here's what's commonly done instead.
+585.48s: You randomly shuffle your training data and then divide it into a whole 
+588.97s: bunch of mini-batches, let's say each one having 100 training examples.
+592.94s: Then you compute a step according to the mini-batch.
+596.96s: It's not going to be the actual gradient of the cost function, 
+600.06s: which depends on all of the training data, not this tiny subset, 
+603.26s: so it's not the most efficient step downhill, but each mini-batch does give 
+607.00s: you a pretty good approximation, and more importantly, 
+609.71s: it gives you a significant computational speedup.
+612.82s: If you were to plot the trajectory of your network under the relevant cost surface, 
+617.13s: it would be a little more like a drunk man stumbling aimlessly down a hill but taking 
+621.54s: quick steps, rather than a carefully calculating man determining the exact downhill 
+625.85s: direction of each step before taking a very slow and careful step in that direction.
+631.54s: This technique is referred to as stochastic gradient descent.
+635.96s: There's a lot going on here, so let's just sum it up for ourselves, shall we?
+640.44s: Backpropagation is the algorithm for determining how a single training 
+644.27s: example would like to nudge the weights and biases, 
+647.08s: not just in terms of whether they should go up or down, 
+650.11s: but in terms of what relative proportions to those changes cause the 
+653.83s: most rapid decrease to the cost.
+656.26s: A true gradient descent step would involve doing this for all your tens of 
+660.28s: thousands of training examples and averaging the desired changes you get.
+664.86s: But that's computationally slow, so instead you randomly subdivide the 
+668.96s: data into mini-batches and compute each step with respect to a mini-batch.
+674.00s: Repeatedly going through all of the mini-batches and making these adjustments, 
+677.91s: you will converge towards a local minimum of the cost function, 
+681.08s: which is to say your network will end up doing a really good job on the training examples.
+687.24s: So with all of that said, every line of code that would go into implementing backprop 
+692.09s: actually corresponds with something you have now seen, at least in informal terms.
+697.56s: But sometimes knowing what the math does is only half the battle, 
+700.52s: and just representing the damn thing is where it gets all muddled and confusing.
+704.86s: So for those of you who do want to go deeper, the next video goes through the same 
+708.62s: ideas that were just presented here, but in terms of the underlying calculus, 
+712.16s: which should hopefully make it a little more familiar as you see the topic in other 
+715.97s: resources.
+717.34s: Before that, one thing worth emphasizing is that for this algorithm to work, 
+720.88s: and this goes for all sorts of machine learning beyond just neural networks, 
+724.43s: you need a lot of training data.
+726.42s: In our case, one thing that makes handwritten digits such a nice example is that 
+730.41s: there exists the MNIST database, with so many examples that have been labeled by humans.
+735.30s: So a common challenge that those of you working in machine learning will be familiar with 
+739.25s: is just getting the labeled training data you actually need, 
+741.92s: whether that's having people label tens of thousands of images, 
+744.73s: or whatever other data type you might be dealing with.
