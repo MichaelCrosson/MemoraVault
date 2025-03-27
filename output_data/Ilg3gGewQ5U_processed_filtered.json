@@ -18,34 +18,16 @@
         "extracted_text": ""
     },
     {
-        "frame": "frame_70.jpg",
-        "label": "analog clock",
-        "caption": "what is the cost of difference?",
-        "extracted_text": "What’s the “cost”\n\n- of this difference?\n\nN\nWSN ZO ELG cS N 0 0\nSO ew, ge O2\nRES LO Wes! A 8:\nSSG NEG er a\nWoe: PO AESO SIAN ZI O4\n784 9: Xe KSA Et\nPINT EER Fe: Os\nYC ° et\n\n"
-    },
-    {
         "frame": "frame_75.jpg",
         "label": "scoreboard",
         "caption": "a black background with a white line and a green line with a black background with a white line",
         "extracted_text": "Cost of\n\n(0.43 — 0.00)?\n(0.28 — 0.00)?\n(0.19 — 0.00)?\n(0.88 — 1.00)?4\n(0.72 — 0.00)?\n(0.01 — 0.00)?\n(0.64 — 0.00)?\n(0.86 — 0.00)?\n(0.99 — 0.00)?\n(0.63 — 0.00)?\n\n+\n\nWhat’s the “cost”\nof this difference?\n\nUtter trash\n"
     },
     {
-        "frame": "frame_120.jpg",
-        "label": "oscilloscope, scope, cathode-ray oscilloscope, CRO",
-        "caption": "a graph with a number of different numbers",
-        "extracted_text": "0.16\n\n0.72\n—0.93\n-vo(...)=| :\nAll Cts or\nand biases °\n1.52\n\nC(wo, W1,--- , W13,001) = 2.85\n\nDirection in\n13,002 dimensions?!?\n"
-    },
-    {
         "frame": "frame_175.jpg",
         "label": "menu",
         "caption": "a blackboard with a mathematical equation on it",
         "extracted_text": "ju\n6! -\n= (( .\n; ©)\n—\nZz\noS\n)\n©\na’\n(2!\n)\n"
-    },
-    {
-        "frame": "frame_190.jpg",
-        "label": "web site, website, internet site, site",
-        "caption": "pi recative walkthough incorent infinctionaps",
-        "extracted_text": "Plan\n\nIncrease b\n\n*Recap\n\ni. Increase w;\n* Intuitive walkthrough in proportion to a;\n\nChange a;\n\n¢ Derivatives in\ncomputational graphs\n\n"
     },
     {
         "frame": "frame_205.jpg",
@@ -66,22 +48,16 @@
         "extracted_text": "You can only adjust weigats ao lt...\n\n784 ERIK\nae\nLL XS © 6\n\niY ON\nOi / e\nIZ x \\ 7\n\ny\nVa\n\n"
     },
     {
-        "frame": "frame_280.jpg",
-        "label": "analog clock",
-        "caption": "a black background with a white and red dotted line",
-        "extracted_text": "784\n\n"
-    },
-    {
-        "frame": "frame_325.jpg",
-        "label": "web site, website, internet site, site",
-        "caption": "a blackboard with a whiteboard and a blackboard with a whiteboard and a whiteboard",
-        "extracted_text": "= (Wao + WA, Fett FH Wyp—1An—1 + )\n\nIncrease b\n\nIncrease w;\n\nChange a;\n\n"
-    },
-    {
         "frame": "frame_345.jpg",
         "label": "oscilloscope, scope, cathode-ray oscilloscope, CRO",
         "caption": "a graph graph with a graph graph and a graph graph",
         "extracted_text": "0.72\n—0.93\n-VCl...)=]\nAll Cots re\nand biases °\n1.52\n\nC(wo, W1,--. ,W13,001) = 2.85\n"
+    },
+    {
+        "frame": "frame_360.jpg",
+        "label": "web site, website, internet site, site",
+        "caption": "a blackboard with a whiteboard and a yellowboard with a blackboard with a whiteboard",
+        "extracted_text": "= 0(W9d9 + Way +--+ + Wp—1An—1 + bd)\n\nIncrease b\n\nIncrease w;\nin proportion to a;\n\nChange a;\n\n"
     },
     {
         "frame": "frame_385.jpg",
@@ -96,18 +72,6 @@
         "extracted_text": "Propagate backwards\n\nIncrease b\n\nIncrease w;\nin proportion to a;\n\nChange a;\nin proportion to w;\n\nOOBOOOOOOOOOOCOO0\neo eR oOo rr\n"
     },
     {
-        "frame": "frame_495.jpg",
-        "label": "harp",
-        "caption": "a diagram of a program with a program in the background",
-        "extracted_text": "Propagate backwards\n\na\n\n@@G000C880080800\n\n"
-    },
-    {
-        "frame": "frame_505.jpg",
-        "label": "analog clock",
-        "caption": "a diagram of a network with several nodes",
-        "extracted_text": "Propagate backwards\n\ni\n\n@©000000000800800\n\ner foley YY Yolel_jel YY lee\n"
-    },
-    {
         "frame": "frame_525.jpg",
         "label": "digital clock",
         "caption": "arabic alphabets - screenshote",
@@ -118,30 +82,6 @@
         "label": "digital clock",
         "caption": "a table with numbers and symbols",
         "extracted_text": "Average over\n\nall training data\n\nWo —0.08 | +0.02 | —0.02 | +0.11 | —0.05 | —0.14\nWy —~0.11 | +0.11 | +0.07 | +0.02 | +0.09 | +0.05\nWe —0.07 | —0.04 | —0.01 | +0.02 | +0.13 | —0.15\nW13,001 | +0.13 | +0.08 | —0.06 | —0.09 | —0.02 | +0.04\n\n"
-    },
-    {
-        "frame": "frame_540.jpg",
-        "label": "scoreboard",
-        "caption": "a graph with a line of data and a line of data",
-        "extracted_text": "Average over\nall training data\n\n\\\n\n— —0.08\n\noO\nWo —0.08 | +0.02 | —0.02 | +0.11 | —0.05 | —0.14\nWI\nW2\n\nW13,001\n\n"
-    },
-    {
-        "frame": "frame_555.jpg",
-        "label": "digital clock",
-        "caption": "a diagram of the algorithm for a algorithm",
-        "extracted_text": "Average over\n\n‘2 3 | Cy] wate ” a\n\n—0.08\n+0.12\n\n—1VC (wy, W2,.-- . W13,001) = | —0.06\n\n+ 0.04\n"
-    },
-    {
-        "frame": "frame_595.jpg",
-        "label": "digital clock",
-        "caption": "a black and white font with numbers",
-        "extracted_text": "SOU /TANZIN¥ 3 =\nS617 2 F CF HOPS\nAZyY,327a F C70\nGOFF GI FTI 7 8\n\n"
-    },
-    {
-        "frame": "frame_600.jpg",
-        "label": "typewriter keyboard",
-        "caption": "a set of numbers with the same numbers",
-        "extracted_text": "Compute gradient descent step\n\naN\n\nusing backprop)\n\nSIO 7 TA VF I\nSe1.7AF CSUN OY\nAZY3 272% °F 670\n60360187793\n\n"
     },
     {
         "frame": "frame_605.jpg",
@@ -168,6 +108,12 @@
         "extracted_text": "Training in ls\nprogress. . .\n\n784\n\n"
     },
     {
+        "frame": "frame_675.jpg",
+        "label": "typewriter keyboard",
+        "caption": "a black and white font with numbers",
+        "extracted_text": "QV oN \\ TY\n> B® QS HO\nS VX  &\nAja xy SM\n—] my BN\nof) se) ie) oe\nO] B® NR\nSpr mg N\nCIN ON mos\nS12 SS NN 9\nWw Mm a\n\n"
+    },
+    {
         "frame": "frame_700.jpg",
         "label": "web site, website, internet site, site",
         "caption": "the codel's book",
@@ -178,12 +124,6 @@
         "label": "screwdriver",
         "caption": "a cartoon drawing of a cat and a dog",
         "extracted_text": "wie\n\nI...er...can’t follow\nthat code at all.\n"
-    },
-    {
-        "frame": "frame_710.jpg",
-        "label": "beaker",
-        "caption": "let let let let let let let let let let let let let let let let let let let",
-        "extracted_text": "Let’s get to the\ncalculus then\n\ntiHH V\\\n"
     },
     {
         "frame": "frame_715.jpg",
